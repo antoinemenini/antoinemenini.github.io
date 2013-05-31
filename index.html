@@ -37,20 +37,25 @@
 
         <p>Rappels</p>
 
-<h1>Ruby on Rails</h1>
+<h1>
+<a name="ruby-on-rails" class="anchor" href="#ruby-on-rails"><span class="octicon octicon-link"></span></a>Ruby on Rails</h1>
 
-<h2>Modèles</h2>
+<h2>
+<a name="modles" class="anchor" href="#modles"><span class="octicon octicon-link"></span></a>Modèles</h2>
 
-<h3>Générer un nouveau modèle</h3>
+<h3>
+<a name="gnrer-un-nouveau-modle" class="anchor" href="#gnrer-un-nouveau-modle"><span class="octicon octicon-link"></span></a>Générer un nouveau modèle</h3>
 
 <div class="highlight"><pre><span class="nv">$ </span>rails generate model Product name:string description:text
 </pre></div>
 
-<h4>Convention de nommage :</h4>
+<h4>
+<a name="convention-de-nommage-" class="anchor" href="#convention-de-nommage-"><span class="octicon octicon-link"></span></a>Convention de nommage :</h4>
 
 <p>Au singulier et commence par une majuscule</p>
 
-<h4>Types supportés :</h4>
+<h4>
+<a name="types-supports-" class="anchor" href="#types-supports-"><span class="octicon octicon-link"></span></a>Types supportés :</h4>
 
 <ul>
 <li><code>:binary</code></li>
@@ -65,33 +70,71 @@
 <li><code>:text</code></li>
 <li><code>:time</code></li>
 <li><code>:timestamp</code></li>
-</ul><h3>Lancer la migration du modèle</h3>
+</ul><h3>
+<a name="crer-migration" class="anchor" href="#crer-migration"><span class="octicon octicon-link"></span></a>Créer Migration</h3>
+
+<h4>
+<a name="ajouter--supprimer-une-colonne" class="anchor" href="#ajouter--supprimer-une-colonne"><span class="octicon octicon-link"></span></a>Ajouter / supprimer une colonne</h4>
+
+<p>Nom de la migration de la forme "AddXXXToYYY" ou "RemoveXXXFromYYY" et suivi par une liste de noms de colonnes et de types :</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>rails generate migration AddPartNumberToProducts part_number:string
+</pre></div>
+
+<p>génère :</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">AddPartNumberToProducts</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">add_column</span> <span class="ss">:products</span><span class="p">,</span> <span class="ss">:part_number</span><span class="p">,</span> <span class="ss">:string</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Pour ajouter plusieurs colonnes :</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>rails generate migration AddDetailsToProducts part_number:string price:decimal
+</pre></div>
+
+<p>génère :</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">AddDetailsToProducts</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">add_column</span> <span class="ss">:products</span><span class="p">,</span> <span class="ss">:part_number</span><span class="p">,</span> <span class="ss">:string</span>
+    <span class="n">add_column</span> <span class="ss">:products</span><span class="p">,</span> <span class="ss">:price</span><span class="p">,</span> <span class="ss">:decimal</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
 
 <div class="highlight"><pre><span class="nv">$ </span>rake db:migrate
 </pre></div>
 
-<h2>Contrôleurs</h2>
+<h2>
+<a name="contrleurs" class="anchor" href="#contrleurs"><span class="octicon octicon-link"></span></a>Contrôleurs</h2>
 
-<h3>Créer un nouveau contrôleur</h3>
+<h3>
+<a name="crer-un-nouveau-contrleur" class="anchor" href="#crer-un-nouveau-contrleur"><span class="octicon octicon-link"></span></a>Créer un nouveau contrôleur</h3>
 
 <div class="highlight"><pre><span class="nv">$ </span>rails generate controller name method1 method2
 </pre></div>
 
-<h4>Convention de nommage :</h4>
+<h4>
+<a name="convention-de-nommage--1" class="anchor" href="#convention-de-nommage--1"><span class="octicon octicon-link"></span></a>Convention de nommage :</h4>
 
 <p>Au pluriel, commence par une majuscule. Ex : <code>Users</code> va créer la classe <code>UsersController</code></p>
 
-<h2>Console</h2>
+<h2>
+<a name="console" class="anchor" href="#console"><span class="octicon octicon-link"></span></a>Console</h2>
 
 <div class="highlight"><pre><span class="nv">$ </span>rails console
 </pre></div>
 
-<h3>Executer une requette SQL</h3>
+<p>On utilise ensuite les mêmes méthodes que dans le code pour chercher/créer/détruire des objets</p>
+
+<h3>
+<a name="executer-une-requette-sql" class="anchor" href="#executer-une-requette-sql"><span class="octicon octicon-link"></span></a>Executer une requette SQL</h3>
 
 <div class="highlight"><pre>&gt; ActiveRecord::Base.connection.execute<span class="o">(</span><span class="s2">"SQL query"</span><span class="o">)</span>
 </pre></div>
-
-<p>On utilise ensuite les mêmes méthodes que dans le code pour chercher/créer/détruire des objets</p>
       </section>
 
     </div>
